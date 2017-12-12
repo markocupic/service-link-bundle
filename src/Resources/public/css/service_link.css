@@ -28,6 +28,10 @@
     margin-right: 4px;
 }
 
+#ctrl_faIcon .widget #iconBox [class*="fa-"] {
+    font-size: 2em !important
+}
+
 #ctrl_faIcon #iconBox > div > [class*="fa-"] {
     color: #333;
 }

@@ -32,12 +32,19 @@ class ce_serviceLink extends Backend
         $arrFaIds = $this->getFaIds();
         $html = '<fieldset id="ctrl_faIcon" class="tl_radio_container">';
         // Filter
+        $html .= '<div class="widget">';
         $html .= '<h3><label>' . $GLOBALS['TL_LANG']['tl_content']['faIconFilter'] . '</label></h3>';
         $html .= '<input type="text" id="faClassFilter" class="tl_text fa-class-filter" placeholder="filter">';
+        $html .= '</div>';
+
 
         // Build radio-button-list
+        $html .= '<div class="widget">';
         $html .= '<h3><label>Icon picker</label></h3>';
         $html .= '<div id="iconBox">';
+
+
+
         $i = 0;
         foreach ($arrFaIds as $arrFa)
         {
@@ -57,8 +64,14 @@ class ce_serviceLink extends Backend
             $html .= '</div>';
             $i++;
         }
+
+
         $html .= '</div>';
         $html .= '<p class="tl_help tl_tip" title="">' . $GLOBALS['TL_LANG']['tl_content']['faIcon'][1] . '</p>';
+        $html .= '</div>';
+        $html .= '</fieldset>';
+
+
 
         // Javascript (Mootools)
         $html .= '
@@ -105,7 +118,7 @@ class ce_serviceLink extends Backend
     protected function getFaIds()
     {
 
-        $strFile = file_get_contents(TL_ROOT . '/system/modules/service_link/yml/icons.yml');
+        $strFile = file_get_contents(TL_ROOT . '/vendor/markocupic/service-link-bundle/src/Resources/yml/icons.yml');
 
         $arrYaml = Yaml::parse($strFile);
         foreach ($arrYaml as $faId => $arrItemProps)

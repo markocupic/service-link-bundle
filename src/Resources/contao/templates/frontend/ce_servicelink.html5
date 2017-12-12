@@ -5,6 +5,12 @@
         <i class="fa <?= $this->faPrefix ?> <?= $this->faIcon ?> <?= $this->iconClass ?>"></i>
     </div>
 
+    <!-- rounded icons
+    <i class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa <?= $this->faIcon ?> fa-stack-1x fa-inverse"></i>
+    </i>
+    -->
     <<?= $this->hl ?> class="service-link-headline">
       <a href="<?= $this->buttonJumpTo ?>" itemprop="url">
         <?= $this->headline ?>
