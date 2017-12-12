@@ -12,6 +12,7 @@ $GLOBALS['TL_LANG']['tl_content']['icon_legend'] = 'Icon-Einstellungen';
 // Fields
 $GLOBALS['TL_LANG']['tl_content']['faIconFilter'] = 'Suche Icons mit Klassenfilter';
 $GLOBALS['TL_LANG']['tl_content']['faIcon'] = array('Icon Picker (FontAwesome v' . SERVICE_LINK_FONTAWESOME_VERSION . ')', 'Wählen Sie ein Icon aus der Font Awesome Bibliothek aus.');
+$GLOBALS['TL_LANG']['tl_content']['faPrefix'] = array('Font Awesome 5 Style', 'W&auml;hlen Sie den Font Awesome Style aus.');
 $GLOBALS['TL_LANG']['tl_content']['iconClass'] = array('Zusätzliche CSS-Klasse für das Icon', 'Z.B.: fa-4x');
 $GLOBALS['TL_LANG']['tl_content']['buttonClass'] = array('Button CSS-Klassen', 'Z.B. Bootstrap Klassen: btn btn-primary');
 $GLOBALS['TL_LANG']['tl_content']['buttonText'] = array('Button Beschriftung', '');
