@@ -63,7 +63,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['iconClass'] = array(
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['faPrefix'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_content']['faPrefix'],
-    'references' => &$GLOBALS['TL_LANG']['tl_content'],
+    'reference' => &$GLOBALS['TL_LANG']['tl_content'],
     'search' => true,
     'inputType' => 'select',
     'options' => array('far', 'fal', 'fas', 'fab'),
