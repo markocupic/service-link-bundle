@@ -1,0 +1,31 @@
+<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+<div class="service-link-wrapper">
+
+    <div class="block service-link-icon wow fadeIn" id="serviceLink<?= $this->id ?>">
+        <i class="fa <?= $this->faIcon ?> <?= $this->iconClass ?>"></i>
+    </div>
+
+    <!-- rounded icons
+    <i class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa <?= $this->faIcon ?> fa-stack-1x fa-inverse"></i>
+    </i>
+    -->
+    <<?= $this->hl ?> class="service-link-headline">
+      <a href="<?= $this->buttonJumpTo ?>" itemprop="url">
+        <?= $this->headline ?>
+      </a>
+    </<?= $this->hl ?>>
+
+    <div class="service-link-text">
+        <?= $this->serviceLinkText ?>
+    </div>
+
+    <?php if ($this->buttonJumpTo): ?>
+    <div class="service-link-button">
+        <a href="<?= $this->buttonJumpTo ?>" class="<?= $this->buttonClass ?>"><?= $this->buttonText ?></a>
+    </div>
+    <?php endif; ?>
+
+ </div>
+</div>
