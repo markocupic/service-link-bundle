@@ -12,22 +12,12 @@
  */
 
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['serviceLink'] = 'name,type,headline;{template_legend:hide},customTpl;{icon_legend},faIcon,faPrefix,iconClass;{text_legend},serviceLinkText;{button_legend},buttonText,buttonClass,buttonJumpTo;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['serviceLink'] = 'name,type,headline;{template_legend:hide},customTpl;{icon_legend},faIcon,iconClass;{text_legend},serviceLinkText;{button_legend},buttonText,buttonClass,buttonJumpTo;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 
 
 /**
  * Add fields to tl_content
  */
-$GLOBALS['TL_DCA']['tl_content']['fields']['faIcon'] = array(
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['faIcon'],
-    'search' => true,
-    'input_field_callback' => array('ce_serviceLink', 'generatePicker'),
-    'inputType' => 'radio',
-    'eval' => array('doNotShow' => true),
-    'sql' => "varchar(255) NOT NULL default ''"
-);
-
-
 $GLOBALS['TL_DCA']['tl_content']['fields']['buttonClass'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_content']['buttonClass'],
     'search' => true,
@@ -58,16 +48,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['iconClass'] = array(
     'search' => true,
     'inputType' => 'text',
     'eval' => array('maxlength' => 200),
-    'sql' => "varchar(255) NOT NULL default ''"
-);
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['faPrefix'] = array(
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['faPrefix'],
-    'reference' => &$GLOBALS['TL_LANG']['tl_content'],
-    'search' => true,
-    'inputType' => 'select',
-    'options' => array('far', 'fal', 'fas', 'fab'),
-    'eval' => array('mandatory' => true, 'maxlength' => 200),
     'sql' => "varchar(255) NOT NULL default ''"
 );
 

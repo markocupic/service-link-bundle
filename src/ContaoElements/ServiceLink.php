@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * Contao Open Source CMS
+ *
+ * Copyright (c) 2005-2015 Leo Feyer
+ *
+ * @license LGPL-3.0+
+ */
+
+namespace Markocupic\ServiceLinkBundle\ContaoElements;
+
+/**
+ * Class ServiceLink
+ * @package Markocupic
+ */
+class ServiceLink extends \ContentElement
+{
+
+    /**
+     * Template
+     * @var string
+     */
+    protected $strTemplate = 'ce_servicelink';
+
+    /**
+     * @return string
+     */
+    public function generate()
+    {
+        if(TL_MODE === 'BE')
+        {
+
+            $this->strTemplate = 'be_servicelink';
+
+            /** @var \BackendTemplate|object $objTemplate */
+            $this->Template = new \BackendTemplate($this->strTemplate);
+            $arrFa = deserialize($this->faIcon,true);
+            $this->Template->faIcon = $arrFa[0];
+            $this->Template->faStyle = $arrFa[1];
+            $this->Template->iconClass = $this->iconClass;
+            $this->Template->headline = $this->headline;
+            $this->Template->serviceLinkText = $this->serviceLinkText;
+            $this->Template->buttonClass = $this->buttonClass;
+            $this->Template->buttonText = $this->buttonText;
+        }
+
+        return parent::generate();
+
+    }
+
+
+    /**
+     * Generate the content element
+     */
+    protected function compile()
+    {
+        global $objPage;
+
+        // Clean the RTE output
+        if ($objPage->outputFormat == 'xhtml')
+        {
+            $this->text = \StringUtil::toXhtml($this->text);
+        }
+        else
+        {
+            $this->text = \StringUtil::toHtml5($this->text);
+        }
+
+        $arrFa = deserialize($this->faIcon,true);
+
+        $this->Template->faIcon = $arrFa[0];
+        $this->Template->faStyle = $arrFa[1];
+
+        $this->Template->serviceLinkText = \StringUtil::encodeEmail($this->serviceLinkText);
+        $this->Template->buttonJumpTo = $this->buttonJumpTo;
+
+    }
+}
