@@ -36,7 +36,7 @@ class ServiceLink extends \ContentElement
             /** @var \BackendTemplate|object $objTemplate */
             $this->Template = new \BackendTemplate($this->strTemplate);
             $arrFa = deserialize($this->faIcon,true);
-            $this->Template->faIcon = $arrFa[0];
+            $this->Template->faId = $arrFa[0];
             $this->Template->faStyle = $arrFa[1];
             $this->Template->iconClass = $this->iconClass;
             $this->Template->headline = $this->headline;
@@ -69,7 +69,7 @@ class ServiceLink extends \ContentElement
 
         $arrFa = deserialize($this->faIcon,true);
 
-        $this->Template->faIcon = $arrFa[0];
+        $this->Template->faId = $arrFa[0];
         $this->Template->faStyle = $arrFa[1];
 
         $this->Template->serviceLinkText = \StringUtil::encodeEmail($this->serviceLinkText);
