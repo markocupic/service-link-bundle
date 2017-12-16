@@ -27,7 +27,7 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create('Markocupic\ServiceLinkBundle\MarkocupicServiceLinkBundle')
-                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle','Markocupic\FontawesomeIconPickerBundle\MarkocupicFontawesomeIconPickerBundle'])
+                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle','Markocupic\FontawesomeIconPickerBundle\MarkocupicFontawesomeIconPickerBundle']) 
                 ->setReplace(['service_link']),
         ];
     }
