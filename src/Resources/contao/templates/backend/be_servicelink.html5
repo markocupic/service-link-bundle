@@ -2,7 +2,7 @@
     <div class="service-link-wrapper">
 
         <div class="block service-link-icon">
-            <i class="fa <?= $this->faStyle ?> fa-<?= $this->faId ?> <?= $this->iconClass ?>"></i>
+            <i class="fa <?= $this->faStyle ?> fa-<?= $this->faId ?> <?= $this->iconClass ?>" title="<?= $this->faStyle ?> fa-<?= $this->faId ?>"></i>
         </div>
 
         <h2 class="service-link-headline"><?= $this->headline ?></h2>
@@ -10,7 +10,7 @@
         <div class="service-link-text"><?= $this->serviceLinkText ?></div>
 
         <div class="service-link-button">
-            <a href="Mitglieder" onclick="javascript:return false" class="<?= $this->buttonClass ?>"><?= $this->buttonText ?></a>
+            <a href="#" onclick="javascript:return false" class="<?= $this->buttonClass ?>"><?= $this->buttonText ?></a>
         </div>
 
     </div>
