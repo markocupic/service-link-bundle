@@ -8,7 +8,7 @@
     "Font Awesome 5"
   ],
   "type": "contao-module",
-  "license": "LGPL-3.0+",
+  "license": "MIT",
   "authors": [
     {
       "name": "Marko Cupic",
