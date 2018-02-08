@@ -1,11 +1,12 @@
 <?php
 
 /**
- * Contao Open Source CMS
+ * @copyright  Marko Cupic 2017 <m.cupic@gmx.ch>
+ * @author     Marko Cupic
+ * @package    Service Link Bundle
+ * @license    LGPL-3.0+
+ * @see	       https://github.com/markocupic/service-link-bundle
  *
- * Copyright (c) 2005-2015 Leo Feyer
- *
- * @license LGPL-3.0+
  */
 
 namespace Markocupic\ServiceLinkBundle\ContaoElements;

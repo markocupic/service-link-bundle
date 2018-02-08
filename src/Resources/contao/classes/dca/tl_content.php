@@ -1,13 +1,16 @@
 <?php
 
+/**
+ * @copyright  Marko Cupic 2017 <m.cupic@gmx.ch>
+ * @author     Marko Cupic
+ * @package    Service Link Bundle
+ * @license    LGPL-3.0+
+ * @see        https://github.com/markocupic/service-link-bundle
+ *
+ */
+
 use Symfony\Component\Yaml\Yaml;
 
-/**
- * Created by PhpStorm.
- * User: Marko
- * Date: 12.12.2017
- * Time: 21:26
- */
 
 class ce_serviceLink extends Backend
 {
@@ -44,7 +47,6 @@ class ce_serviceLink extends Backend
         $html .= '<div id="iconBox">';
 
 
-
         $i = 0;
         foreach ($arrFaIds as $arrFa)
         {
@@ -70,7 +72,6 @@ class ce_serviceLink extends Backend
         $html .= '<p class="tl_help tl_tip" title="">' . $GLOBALS['TL_LANG']['tl_content']['faIcon'][1] . '</p>';
         $html .= '</div>';
         $html .= '</fieldset>';
-
 
 
         // Javascript (Mootools)
@@ -124,11 +125,11 @@ class ce_serviceLink extends Backend
         foreach ($arrYaml as $faId => $arrItemProps)
         {
             $arrItem = array(
-                'id' => $faId,
-                'style' => 'solid',
-                'faStyle' => 'fas',
-                'faClass' => 'fa-' . $faId,
-                'availableStyles' => implode(' ', $arrItemProps['styles'])
+                'id'              => $faId,
+                'style'           => 'solid',
+                'faStyle'         => 'fas',
+                'faClass'         => 'fa-' . $faId,
+                'availableStyles' => implode(' ', $arrItemProps['styles']),
 
             );
 

@@ -2,7 +2,7 @@
 <div class="service-link-wrapper">
 
     <div class="block service-link-icon wow fadeIn" id="serviceLink<?= $this->id ?>">
-        <i class="fa <?= $this->faIconPrefix ?> fa-<?= $this->faIconName ?> <?= $this->iconClass ?>" data-faunicode="<?= $this->faIconUnicode ?>"></i>
+        <i class="<?= $this->faIconPrefix ?> fa-<?= $this->faIconName ?> <?= $this->iconClass ?>" data-faunicode="<?= $this->faIconUnicode ?>"></i>
     </div>
 
 

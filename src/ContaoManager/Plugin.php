@@ -2,9 +2,9 @@
 /**
  * @copyright  Marko Cupic 2017 <m.cupic@gmx.ch>
  * @author     Marko Cupic
- * @package    GalleryCreatrBundle
+ * @package    Service Link Bundle
  * @license    LGPL-3.0+
- * @see	       https://github.com/markocupic/gallery-creator-bundle
+ * @see	       https://github.com/markocupic/service-link-bundle
  *
  */
 namespace Markocupic\ServiceLinkBundle\ContaoManager;

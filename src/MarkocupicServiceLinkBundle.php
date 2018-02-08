@@ -1,11 +1,11 @@
 <?php
-
-/*
- * This file is part of Contao.
+/**
+ * @copyright  Marko Cupic 2017 <m.cupic@gmx.ch>
+ * @author     Marko Cupic
+ * @package    Service Link Bundle
+ * @license    LGPL-3.0+
+ * @see	       https://github.com/markocupic/service-link-bundle
  *
- * Copyright (c) 2005-2016 Leo Feyer
- *
- * @license LGPL-3.0+
  */
 
 namespace Markocupic\ServiceLinkBundle;
@@ -13,7 +13,7 @@ namespace Markocupic\ServiceLinkBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Configures the service_link bundle.
+ * Configures the service link bundle.
  *
  * @author Marko Cupic <https://github.com/markocupic>
  */
