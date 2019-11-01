@@ -7,9 +7,9 @@
 
 
     <<?= $this->hl ?> class="service-link-headline">
-      <a href="<?= $this->buttonJumpTo ?>" itemprop="url">
-        <?= $this->headline ?>
-      </a>
+        <?php if ($this->buttonJumpTo): ?><a href="{{link_url::<?= $this->buttonJumpTo ?>}}" itemprop="url"><?php endif; ?>
+            <?= $this->headline ?>
+        <?php if ($this->buttonJumpTo): ?></a><?php endif; ?>
     </<?= $this->hl ?>>
 
     <div class="service-link-text">
@@ -18,7 +18,7 @@
 
     <?php if ($this->buttonJumpTo): ?>
     <div class="service-link-button">
-        <a href="<?= $this->buttonJumpTo ?>" class="<?= $this->buttonClass ?>"><?= $this->buttonText ?></a>
+        <a href="{{link_url::<?= $this->buttonJumpTo ?>}}" class="<?= $this->buttonClass ?>"><?= $this->buttonText ?></a>
     </div>
     <?php endif; ?>
 
