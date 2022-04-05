@@ -1,42 +1,44 @@
 <?php
 
-/**
- * @copyright  Marko Cupic 2017 <m.cupic@gmx.ch>
- * @author     Marko Cupic
- * @package    Service Link Bundle
- * @license    LGPL-3.0+
- * @see	       https://github.com/markocupic/service-link-bundle
+declare(strict_types=1);
+
+/*
+ * This file is part of Service Link Bundle.
  *
+ * (c) Marko Cupic 2022 <m.cupic@gmx.ch>
+ * @license GPL-3.0-or-later
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ * @link https://github.com/markocupic/service-link-bundle
  */
 
 namespace Markocupic\ServiceLinkBundle\ContaoElements;
 
-/**
- * Class ServiceLink
- * @package Markocupic
- */
-class ServiceLink extends \ContentElement
+use Contao\BackendTemplate;
+use Contao\ContentElement;
+use Contao\StringUtil;
+
+class ServiceLink extends ContentElement
 {
+    public const TYPE = 'serviceLink';
 
     /**
-     * Template
+     * Template.
+     *
      * @var string
      */
     protected $strTemplate = 'ce_servicelink';
 
-    /**
-     * @return string
-     */
-    public function generate()
+    public function generate(): string
     {
-        if(TL_MODE === 'BE')
-        {
-
+        if (TL_MODE === 'BE') {
             $this->strTemplate = 'be_servicelink';
 
-            /** @var \BackendTemplate|object $objTemplate */
-            $this->Template = new \BackendTemplate($this->strTemplate);
-            $arrFa = deserialize($this->faIcon,true);
+            /** @var BackendTemplate|object $objTemplate */
+            $this->Template = new BackendTemplate($this->strTemplate);
+
+            $arrFa = StringUtil::deserialize($this->faIcon, true);
+
             $this->Template->faIconName = $arrFa[0];
             $this->Template->faIconPrefix = $arrFa[1];
             $this->Template->faIconUnicode = $arrFa[2];
@@ -48,35 +50,23 @@ class ServiceLink extends \ContentElement
         }
 
         return parent::generate();
-
     }
 
-
     /**
-     * Generate the content element
+     * Generate the content element.
      */
-    protected function compile()
+    protected function compile(): void
     {
         global $objPage;
 
-        // Clean the RTE output
-        if ($objPage->outputFormat == 'xhtml')
-        {
-            $this->text = \StringUtil::toXhtml($this->text);
-        }
-        else
-        {
-            $this->text = \StringUtil::toHtml5($this->text);
-        }
+        $this->text = StringUtil::toHtml5($this->text);
 
-        $arrFa = deserialize($this->faIcon,true);
+        $arrFa = StringUtil::deserialize($this->faIcon, true);
 
-        $this->Template->faIconName = $arrFa[0];
-        $this->Template->faIconPrefix = $arrFa[1];
-        $this->Template->faIconUnicode = $arrFa[2];
-
-        $this->Template->serviceLinkText = \StringUtil::encodeEmail($this->serviceLinkText);
+        $this->Template->faIconName = $arrFa[0] ?? '';
+        $this->Template->faIconPrefix = $arrFa[1] ?? '';
+        $this->Template->faIconUnicode = $arrFa[2] ?? '';
+        $this->Template->serviceLinkText = StringUtil::encodeEmail($this->serviceLinkText);
         $this->Template->buttonJumpTo = $this->buttonJumpTo;
-
     }
 }
