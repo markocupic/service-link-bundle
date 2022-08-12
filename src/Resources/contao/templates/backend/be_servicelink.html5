@@ -2,7 +2,7 @@
   <div class="service-link-wrapper">
 
     <div class="block service-link-icon">
-      <i class="fa <?= $this->faStyle ?> fa-<?= $this->faIconName ?> <?= $this->iconClass ?>" title="<?= $this->faIconPrefix ?> fa-<?= $this->faIconName ?>" data-faunicode="<?= $this->faIconUnicode ?>"></i>
+      <i class="<?= $this->faIconStyle ?> fa-<?= $this->faIconName ?> <?= $this->iconClass ?>" title="<?= $this->faIconStyle ?> fa-<?= $this->faIconName ?>" data-faunicode="<?= $this->faIconUnicode ?>"></i>
     </div>
 
     <h2 class="service-link-headline"><?= $this->headline ?></h2>

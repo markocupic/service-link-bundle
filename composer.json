@@ -24,7 +24,7 @@
   "require": {
     "php": "^7.4|^8.0",
     "contao/core-bundle": "^4.9",
-    "markocupic/fontawesome-icon-picker-bundle": "^1.0"
+    "markocupic/fontawesome-icon-picker-bundle": "^1.1"
   },
   "replace": {
   },
