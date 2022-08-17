@@ -17,6 +17,7 @@ namespace Markocupic\ServiceLinkBundle\ContaoElements;
 use Contao\BackendTemplate;
 use Contao\ContentElement;
 use Contao\StringUtil;
+use Contao\System;
 use Markocupic\FontawesomeIconPickerBundle\Config;
 
 class ServiceLink extends ContentElement
@@ -32,8 +33,9 @@ class ServiceLink extends ContentElement
 
     public function generate(): string
     {
-        if (TL_MODE === 'BE') {
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
 
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
             $this->strTemplate = 'be_servicelink';
 
             /** @var BackendTemplate|object $objTemplate */
@@ -52,7 +54,6 @@ class ServiceLink extends ContentElement
             $this->Template->buttonText = $this->buttonText ?? '';
 
             return $this->Template->parse();
-
         }
 
         return parent::generate();
@@ -63,10 +64,6 @@ class ServiceLink extends ContentElement
      */
     protected function compile(): void
     {
-        global $objPage;
-
-        //$this->text = StringUtil::toHtml5($this->text);
-
         $arrFa = StringUtil::deserialize($this->faIcon, true);
 
         $this->Template->faIconName = $arrFa[0] ?? '';
