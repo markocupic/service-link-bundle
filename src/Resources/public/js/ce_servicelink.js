@@ -1,18 +1,31 @@
-(function ($) {
-    $().ready(function () {
-        $('.ce_serviceLink  .service-link-icon').on('click', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            var link = $(this).closest('.ce_serviceLink').find('a');
-            if (link.prop('href')) {
-                window.location.href = link.prop('href');
-            }
-        });
+document.addEventListener('DOMContentLoaded', function () {
 
-        $('.serviceLink').on('mousenter', function (event) {
-            this.css('cursor', 'pointer');
-            event.preventDefault();
-            event.stopPropagation();
-        });
-    });
-})(jQuery);
+    let icons = document.querySelectorAll('.ce_serviceLink  .service-link-icon');
+    if (icons.length) {
+        for (let i = 0, len = icons.length; i < len; i++) {
+            icons[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+
+                let link = event.target.closest('.ce_serviceLink').querySelector('a');
+
+                if (link.hasAttribute('href')) {
+                    window.location.href = link.getAttribute('href');
+                }
+            });
+
+        }
+    }
+
+    let serviceLinks = document.querySelectorAll('.ce_serviceLink');
+    if (serviceLinks.length) {
+        for (let i = 0, len = icons.length; i < len; i++) {
+            serviceLinks[i].addEventListener('mouseenter', function (event) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                event.target.style.cursor = 'pointer';
+            });
+        }
+    }
+
+}, false);
