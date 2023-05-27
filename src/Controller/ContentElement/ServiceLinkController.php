@@ -21,7 +21,6 @@ use Contao\CoreBundle\Framework\Adapter;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\StringUtil;
-use Contao\System;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,18 +38,15 @@ class ServiceLinkController extends AbstractContentElementController
         private readonly array $fontawesomeStyles,
     ) {
         $this->stringUtilAdapter = $this->framework->getAdapter(StringUtil::class);
-        $this->systemAdapter = $this->framework->getAdapter(System::class);
     }
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $template->setName('be_servicelink');
 
             // Array ( [0] => signal [1] => fas [2] => f012 )
             $arrFa = $this->stringUtilAdapter->deserialize($model->faIcon, true);
-
 
             $template->faIconName = $arrFa[0] ?? '';
             $template->faIconStyle = $this->fontawesomeStyles[$arrFa[1]] ?? '';
