@@ -4,6 +4,6 @@ services:
     autoconfigure: true
 
   Markocupic\ServiceLinkBundle\:
-    resource: ../../
-    exclude: ../../{DependencyInjection,Resources,Model}
+    resource: ../src/
+    exclude: ../../{DependencyInjection,Model}
 
