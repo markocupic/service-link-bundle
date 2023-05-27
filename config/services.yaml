@@ -2,6 +2,8 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
+    bind:
+      $fontawesomeStyles: '%markocupic_fontawesome_icon_picker.fontawesome_styles%'
 
   Markocupic\ServiceLinkBundle\:
     resource: ../src/

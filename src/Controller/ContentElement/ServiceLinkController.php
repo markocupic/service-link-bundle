@@ -21,8 +21,8 @@ use Contao\CoreBundle\Framework\Adapter;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\StringUtil;
+use Contao\System;
 use Contao\Template;
-use Markocupic\FontawesomeIconPickerBundle\Config;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -36,20 +36,24 @@ class ServiceLinkController extends AbstractContentElementController
     public function __construct(
         private readonly ContaoFramework $framework,
         private readonly ScopeMatcher $scopeMatcher,
+        private readonly array $fontawesomeStyles,
     ) {
         $this->stringUtilAdapter = $this->framework->getAdapter(StringUtil::class);
+        $this->systemAdapter = $this->framework->getAdapter(System::class);
     }
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
+
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $template->setName('be_servicelink');
 
             // Array ( [0] => signal [1] => fas [2] => f012 )
             $arrFa = $this->stringUtilAdapter->deserialize($model->faIcon, true);
 
+
             $template->faIconName = $arrFa[0] ?? '';
-            $template->faIconStyle = Config::$styles[$arrFa[1]] ?? '';
+            $template->faIconStyle = $this->fontawesomeStyles[$arrFa[1]] ?? '';
             $template->faIconUnicode = $arrFa[2] ?? '';
             $template->iconClass = $model->iconClass ?? '';
             $template->headline = $model->headline ?? '';
@@ -64,7 +68,7 @@ class ServiceLinkController extends AbstractContentElementController
 
         $template->faIconName = $arrFa[0] ?? '';
         $template->faIconPrefix = $arrFa[1] ?? '';
-        $template->faIconStyle = Config::$styles[$arrFa[1]] ?? '';
+        $template->faIconStyle = $this->fontawesomeStyles[$arrFa[1]] ?? '';
         $template->faIconUnicode = $arrFa[2] ?? '';
         $template->serviceLinkText = $this->stringUtilAdapter->encodeEmail($model->serviceLinkText);
         $template->buttonJumpTo = $model->buttonJumpTo;

@@ -1,7 +1,7 @@
 <div class="pt-xxl-5 pb-xxl-5 pt-sm-3 pb-sm-3 <?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
   <div class="service-link-wrapper">
-    <div class="block service-link-icon wow fadeIn" id="serviceLink<?= $this->id ?>">
-        <i class="<?= $this->faIconPrefix ?> <?= $this->faIconStyle ?> fa-<?= $this->faIconName ?> <?= $this->iconClass ?>" data-faunicode="<?= $this->faIconUnicode ?>"></i>
+    <div class="block service-link-icon" id="serviceLink<?= $this->id ?>">
+        <i class="<?= $this->faIconStyle ?> fa-<?= $this->faIconName ?> <?= $this->iconClass ?>" data-faunicode="<?= $this->faIconUnicode ?>"></i>
     </div>
 
     <<?= $this->hl ?> class="service-link-headline">
