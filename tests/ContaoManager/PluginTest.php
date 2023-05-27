@@ -18,6 +18,7 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\DelegatingParser;
 use Contao\TestCase\ContaoTestCase;
+use Markocupic\FontawesomeIconPickerBundle\MarkocupicFontawesomeIconPickerBundle;
 use Markocupic\ServiceLinkBundle\ContaoManager\Plugin;
 use Markocupic\ServiceLinkBundle\MarkocupicServiceLinkBundle;
 
@@ -38,6 +39,6 @@ class PluginTest extends ContaoTestCase
         $this->assertCount(1, $bundles);
         $this->assertInstanceOf(BundleConfig::class, $bundles[0]);
         $this->assertSame(MarkocupicServiceLinkBundle::class, $bundles[0]->getName());
-        $this->assertSame([ContaoCoreBundle::class], $bundles[0]->getLoadAfter());
+        $this->assertSame([ContaoCoreBundle::class, MarkocupicFontawesomeIconPickerBundle::class], $bundles[0]->getLoadAfter());
     }
 }

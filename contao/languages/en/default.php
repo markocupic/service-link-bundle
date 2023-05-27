@@ -14,4 +14,5 @@ declare(strict_types=1);
 
 use Markocupic\ServiceLinkBundle\Controller\ContentElement\ServiceLinkController;
 
+$GLOBALS['TL_LANG']['CTE']['service_links'] = 'Service-Links';
 $GLOBALS['TL_LANG']['CTE'][ServiceLinkController::TYPE] = ['Service-Link (Titel, Text, Icon und Link-Button)', 'Fügen Sie einen Service-Link mit Titel, Text, Icon und Link-Button ein.'];

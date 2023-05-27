@@ -14,13 +14,13 @@ declare(strict_types=1);
 
 use Markocupic\FontawesomeIconPickerBundle\Config;
 
-/**
+/*
  * Legends
  */
 $GLOBALS['TL_LANG']['tl_content']['button_legend'] = 'Button-Einstellungen';
 $GLOBALS['TL_LANG']['tl_content']['icon_legend'] = 'Icon-Einstellungen';
 
-/**
+/*
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_content']['faIcon'] = ['Icon Picker (FontAwesome v'.Config::FONTAWESOME_VERSION.')', 'Wählen Sie ein Icon aus der Font Awesome 5 Bibliothek aus.'];
