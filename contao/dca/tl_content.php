@@ -33,7 +33,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes'][ServiceLinkController::TYPE] = '
  */
 $GLOBALS['TL_DCA']['tl_content']['fields']['faIcon'] = [
     'search'    => true,
-    'inputType' => 'fontawesome5Iconpicker',
+    'inputType' => 'fontawesomeIconPicker',
     'eval'      => ['doNotShow' => true],
     'sql'       => 'blob NULL',
 ];
