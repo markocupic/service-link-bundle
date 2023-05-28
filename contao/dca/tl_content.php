@@ -71,7 +71,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['iconClass'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['buttonJumpTo'] = [
     'search'    => true,
     'inputType' => 'text',
-    'eval'      => ['mandatory' => true, 'rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 255, 'fieldType' => 'radio', 'filesOnly' => true, 'tl_class' => 'w50 wizard'],
+    'eval'      => ['rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 255, 'fieldType' => 'radio', 'filesOnly' => true, 'tl_class' => 'w50 wizard'],
     'wizard'    => [
         ['tl_content', 'pagePicker'],
     ],

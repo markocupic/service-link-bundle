@@ -1,0 +1,27 @@
+<div class="pt-xxl-5 pb-xxl-5 pt-sm-3 pb-sm-3 {{ class|default('') }} block" {{ cssID }}{% if style|default %} style="{{ style }}"{% endif %}>
+    <div class="service-link-wrapper">
+        {% if faIconName|default %}
+            <div class="block service-link-icon" id="serviceLink{{ id }}">
+                <i class="{% if faIconStyle|default %}{{ faIconStyle }} {% endif %}fa-{{ faIconName }}{% if iconClass|default %} {{ iconClass }}{% endif %}" data-faunicode="{{ faIconUnicode }}"></i>
+            </div>
+        {% endif %}
+
+        <{{ hl }} class="service-link-headline">
+            {% if buttonJumpTo|default %}<a href="{{ buttonJumpTo }}" itemprop="url">{% endif %}
+                {{ headline }}
+            {% if buttonJumpTo|default %}</a>{% endif %}
+        </{{ hl }}>
+
+        {% if serviceLinkText|default('') is not empty %}
+            <div class="service-link-text">
+                {{ serviceLinkText|raw }}
+            </div>
+        {% endif %}
+
+        {% if buttonJumpTo|default %}
+            <div class="service-link-button">
+                <a href="{{ buttonJumpTo }}" class="{{ buttonClass|default('') }}">{{ buttonText|default('') }}</a>
+            </div>
+        {% endif %}
+    </div>
+</div>

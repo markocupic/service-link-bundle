@@ -25,7 +25,7 @@ use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AsContentElement(ServiceLinkController::TYPE, category:'service_links', template:'ce_servicelink')]
+#[AsContentElement(ServiceLinkController::TYPE, category:'links', template:'ce_servicelink')]
 class ServiceLinkController extends AbstractContentElementController
 {
     public const TYPE = 'serviceLink';
@@ -42,32 +42,22 @@ class ServiceLinkController extends AbstractContentElementController
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-        if ($this->scopeMatcher->isBackendRequest($request)) {
-            $template->setName('be_servicelink');
-
-            // Array ( [0] => signal [1] => fas [2] => f012 )
-            $arrFa = $this->stringUtilAdapter->deserialize($model->faIcon, true);
-
-            $template->faIconName = $arrFa[0] ?? '';
-            $template->faIconStyle = $this->fontawesomeStyles[$arrFa[1]] ?? '';
-            $template->faIconUnicode = $arrFa[2] ?? '';
-            $template->iconClass = $model->iconClass ?? '';
-            $template->headline = $model->headline ?? '';
-            $template->serviceLinkText = $model->serviceLinkText ?? '';
-            $template->buttonClass = $model->buttonClass ?? '';
-            $template->buttonText = $model->buttonText ?? '';
-
-            return $template->getResponse();
-        }
-
+        // Array ( [0] => signal [1] => fas [2] => f012 )
         $arrFa = $this->stringUtilAdapter->deserialize($model->faIcon, true);
 
         $template->faIconName = $arrFa[0] ?? '';
         $template->faIconPrefix = $arrFa[1] ?? '';
-        $template->faIconStyle = $this->fontawesomeStyles[$arrFa[1]] ?? '';
+        $template->faIconStyle = ($arrFa[1] ?? null) ? $this->fontawesomeStyles[$arrFa[1]] ?? '' : '';
         $template->faIconUnicode = $arrFa[2] ?? '';
         $template->serviceLinkText = $this->stringUtilAdapter->encodeEmail($model->serviceLinkText);
-        $template->buttonJumpTo = $model->buttonJumpTo;
+        $template->buttonJumpTo = $model->buttonJumpTo ?? null;
+
+        if ($this->scopeMatcher->isBackendRequest($request)) {
+            $template->setName('be_servicelink');
+            $template->headline = $this->stringUtilAdapter->deserialize($model->headline);
+
+            return $template->getResponse();
+        }
 
         return $template->getResponse();
     }

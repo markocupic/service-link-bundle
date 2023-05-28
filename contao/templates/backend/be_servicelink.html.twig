@@ -1,0 +1,17 @@
+<div class="ce_serviceLink block">
+    <div class="service-link-wrapper">
+
+        <div class="block service-link-icon">
+            <i class="{{ faIconStyle }} fa-{{ faIconName }} {{ iconClass|default('') }}" title="{{ faIconStyle }} fa-{{ faIconName }}" data-faunicode="{{ faIconUnicode }}"></i>
+        </div>
+
+        <h2 class="service-link-headline">{{ headline.value|default('') }}</h2>
+
+        <div class="service-link-text">{{ serviceLinkText|raw }}</div>
+
+        <div class="service-link-button">
+            <a href="#" onclick="return false" class="{{ buttonClass|default('') }}">{{ buttonText|default('') }}</a>
+        </div>
+
+    </div>
+</div>
