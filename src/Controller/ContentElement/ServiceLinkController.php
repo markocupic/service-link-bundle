@@ -37,7 +37,6 @@ class ServiceLinkController extends AbstractContentElementController
     public function __construct(
         private readonly ContaoFramework $framework,
         private readonly ScopeMatcher $scopeMatcher,
-        private readonly InsertTagParser $insertTagParser,
         private readonly array $fontawesomeStyles,
     ) {
         $this->stringUtilAdapter = $this->framework->getAdapter(StringUtil::class);
