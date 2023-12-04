@@ -7,7 +7,7 @@
         {% endif %}
 
         <{{ hl }} class="service-link-headline">
-            {% if buttonJumpTo|default %}<a href="{{ buttonJumpTo }}" itemprop="url">{% endif %}
+            {% if buttonJumpTo|default %}<a href="{{ buttonJumpTo }}" itemprop="url" title="{{ buttonText|default('')|e('html_attr') }}" aria-label="{{ buttonText|default('')|e('html_attr') }}">{% endif %}
                 {{ headline }}
             {% if buttonJumpTo|default %}</a>{% endif %}
         </{{ hl }}>
@@ -20,7 +20,7 @@
 
         {% if buttonJumpTo|default %}
             <div class="service-link-button">
-                <a href="{{ buttonJumpTo }}" class="{{ buttonClass|default('') }}">{{ buttonText|default('') }}</a>
+                <a href="{{ buttonJumpTo }}" class="{{ buttonClass|default('') }}" itemprop="url" title="{{ buttonText|default('')|e('html_attr') }}" aria-label="{{ buttonText|default('')|e('html_attr') }}">{{ buttonText|default('') }}</a>
             </div>
         {% endif %}
     </div>
