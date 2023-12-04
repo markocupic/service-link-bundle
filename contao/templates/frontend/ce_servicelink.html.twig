@@ -1,26 +1,26 @@
 <div class="pt-xxl-5 pb-xxl-5 pt-sm-3 pb-sm-3 {{ class|default('') }} block" {{ cssID }}{% if style|default %} style="{{ style }}"{% endif %}>
     <div class="service-link-wrapper">
-        {% if faIconName|default %}
+        {% if faIconName %}
             <div class="block service-link-icon" id="serviceLink{{ id }}">
-                <i class="{% if faIconStyle|default %}{{ faIconStyle }} {% endif %}fa-{{ faIconName }}{% if iconClass|default %} {{ iconClass }}{% endif %}" data-faunicode="{{ faIconUnicode }}"></i>
+                <i class="{% if faIconStyle %}{{ faIconStyle }} {% endif %}fa-{{ faIconName }}{% if iconClass %} {{ iconClass }}{% endif %}" data-faunicode="{{ faIconUnicode }}"></i>
             </div>
         {% endif %}
 
         <{{ hl }} class="service-link-headline">
-            {% if buttonJumpTo|default %}<a href="{{ buttonJumpTo }}" itemprop="url" title="{{ buttonJumpToLinkText|default('')|e('html_attr') }}" aria-label="{{ buttonJumpToLinkText|default('')|e('html_attr') }}">{% endif %}
+            {% if buttonJumpTo %}<a href="{{ buttonJumpTo }}" itemprop="url" title="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}" aria-label="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}">{% endif %}
                 {{ headline }}
-            {% if buttonJumpTo|default %}</a>{% endif %}
+            {% if buttonJumpTo %}</a>{% endif %}
         </{{ hl }}>
 
-        {% if serviceLinkText|default('') is not empty %}
+        {% if serviceLinkText is not empty %}
             <div class="service-link-text">
-                {{ serviceLinkText|raw }}
+                {{ serviceLinkText|insert_tag|raw }}
             </div>
         {% endif %}
 
-        {% if buttonJumpTo|default %}
+        {% if buttonJumpTo %}
             <div class="service-link-button">
-                <a href="{{ buttonJumpTo }}" class="{{ buttonClass|default('') }}" itemprop="url" title="{{ buttonJumpToLinkText|default('')|e('html_attr') }}" aria-label="{{ buttonJumpToLinkText|default('')|e('html_attr') }}">{{ buttonText|default('') }}</a>
+                <a href="{{ buttonJumpTo }}" class="{{ buttonClass }}" itemprop="url" title="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}" aria-label="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}">{{ buttonText|insert_tag }}</a>
             </div>
         {% endif %}
     </div>

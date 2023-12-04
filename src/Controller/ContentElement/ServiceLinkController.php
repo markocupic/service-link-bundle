@@ -19,6 +19,7 @@ use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Framework\Adapter;
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\CoreBundle\InsertTag\InsertTagParser;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\Database;
 use Contao\StringUtil;
@@ -36,6 +37,7 @@ class ServiceLinkController extends AbstractContentElementController
     public function __construct(
         private readonly ContaoFramework $framework,
         private readonly ScopeMatcher $scopeMatcher,
+        private readonly InsertTagParser $insertTagParser,
         private readonly array $fontawesomeStyles,
     ) {
         $this->stringUtilAdapter = $this->framework->getAdapter(StringUtil::class);
@@ -49,9 +51,9 @@ class ServiceLinkController extends AbstractContentElementController
         $template->faIconPrefix = $arrFa[1] ?? '';
         $template->faIconStyle = ($arrFa[1] ?? null) ? $this->fontawesomeStyles[$arrFa[1]] ?? '' : '';
         $template->faIconUnicode = $arrFa[2] ?? '';
-        $template->serviceLinkText = $this->stringUtilAdapter->encodeEmail($model->serviceLinkText);
-        $template->buttonJumpTo = $model->buttonJumpTo ?? null;
-        $template->buttonJumpToLinkText = $this->stringUtilAdapter->specialcharsAttribute($model->buttonJumpToLinkText);
+        $template->serviceLinkText = $model->serviceLinkText;
+        $template->buttonJumpTo = $model->buttonJumpTo;
+        $template->buttonJumpToLinkText = $model->buttonJumpToLinkText;
 
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $template->setName('be_servicelink');
