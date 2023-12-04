@@ -2,13 +2,19 @@
     <div class="service-link-wrapper">
         {% if faIconName %}
             <div class="block service-link-icon" id="serviceLink{{ id }}">
-                <i class="{% if faIconStyle %}{{ faIconStyle }} {% endif %}fa-{{ faIconName }}{% if iconClass %} {{ iconClass }}{% endif %}" data-faunicode="{{ faIconUnicode }}"></i>
+                {% if buttonJumpTo %}
+                <a href="{{ buttonJumpTo }}" class="{{ buttonClass }}" itemprop="url" title="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}">
+                {% endif %}
+                    <i class="{% if faIconStyle %}{{ faIconStyle }} {% endif %}fa-{{ faIconName }}{% if iconClass %} {{ iconClass }}{% endif %}" data-faunicode="{{ faIconUnicode }}" aria-label="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}"></i>
+                {% if buttonJumpTo %}
+                </a>
+                {% endif %}
             </div>
         {% endif %}
 
         <{{ hl }} class="service-link-headline">
-            {% if buttonJumpTo %}<a href="{{ buttonJumpTo }}" itemprop="url" title="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}" aria-label="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}">{% endif %}
-                {{ headline }}
+        {% if buttonJumpTo %}<a href="{{ buttonJumpTo }}" itemprop="url" title="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}" aria-label="{{ buttonJumpToLinkText|insert_tag|e('html_attr') }}">{% endif %}
+            {{ headline }}
             {% if buttonJumpTo %}</a>{% endif %}
         </{{ hl }}>
 
