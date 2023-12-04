@@ -20,6 +20,7 @@ use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Framework\Adapter;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\CoreBundle\Routing\ScopeMatcher;
+use Contao\Database;
 use Contao\StringUtil;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,7 +43,6 @@ class ServiceLinkController extends AbstractContentElementController
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-        // Array ( [0] => signal [1] => fas [2] => f012 )
         $arrFa = $this->stringUtilAdapter->deserialize($model->faIcon, true);
 
         $template->faIconName = $arrFa[0] ?? '';
@@ -51,6 +51,7 @@ class ServiceLinkController extends AbstractContentElementController
         $template->faIconUnicode = $arrFa[2] ?? '';
         $template->serviceLinkText = $this->stringUtilAdapter->encodeEmail($model->serviceLinkText);
         $template->buttonJumpTo = $model->buttonJumpTo ?? null;
+        $template->buttonJumpToLinkText = $this->stringUtilAdapter->specialcharsAttribute($model->buttonJumpToLinkText);
 
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $template->setName('be_servicelink');

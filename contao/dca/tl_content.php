@@ -22,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes'][ServiceLinkController::TYPE] = '
 {template_legend:hide},customTpl;
 {icon_legend},faIcon,iconClass;
 {text_legend},serviceLinkText;
-{button_legend},buttonText,buttonClass,buttonJumpTo;
+{button_legend},buttonText,buttonClass,buttonJumpTo,buttonJumpToLinkText;
 {protected_legend:hide},protected;
 {expert_legend:hide},guests,cssID,space;
 {invisible_legend:hide},invisible,start,stop
@@ -72,8 +72,14 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['buttonJumpTo'] = [
     'search'    => true,
     'inputType' => 'text',
     'eval'      => ['rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 255, 'fieldType' => 'radio', 'filesOnly' => true, 'tl_class' => 'w50 wizard'],
-    'wizard'    => [
-        ['tl_content', 'pagePicker'],
-    ],
+    'wizard'    => [['tl_content', 'pagePicker']],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['buttonJumpToLinkText'] = [
+    'exclude'   => true,
+    'search'    => true,
+    'inputType' => 'text',
+    'eval'      => ['maxlength' => 255, 'tl_class' => 'w50'],
     'sql'       => "varchar(255) NOT NULL default ''",
 ];

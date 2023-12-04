@@ -27,5 +27,6 @@ $GLOBALS['TL_LANG']['tl_content']['faIcon'] = ['Icon Picker (FontAwesome v'.Conf
 $GLOBALS['TL_LANG']['tl_content']['iconClass'] = ['Zusätzliche CSS-Klasse für das Icon', 'Z.B.: fa-4x'];
 $GLOBALS['TL_LANG']['tl_content']['buttonClass'] = ['Button CSS-Klassen', 'Z.B. Bootstrap Klassen: btn btn-primary'];
 $GLOBALS['TL_LANG']['tl_content']['buttonText'] = ['Button Beschriftung', ''];
-$GLOBALS['TL_LANG']['tl_content']['buttonJumpTo'] = ['Button Weiterleitung', 'Geben Sie eine interne Seite an.'];
+$GLOBALS['TL_LANG']['tl_content']['buttonJumpTo'] = ['Link', 'Verlinken Sie mit einer URL/internen Seite.'];
+$GLOBALS['TL_LANG']['tl_content']['buttonJumpToLinkText'] = ['Link-Titel', 'Der Link-Titel wird als &lt;em&gt;title&lt;/em&gt;-Attribut im HTML-Markup eingefügt.'];
 $GLOBALS['TL_LANG']['tl_content']['serviceLinkText'] = ['Text', 'Geben Sie den Service Link Text ein.'];
