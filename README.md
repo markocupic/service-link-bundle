@@ -3,9 +3,9 @@
 # Contao Service Links
 ![Frontend](docs/frontend.png)
 
-This extension for Contao CMS offers a content element with which service 
-links can be placed on your website. FontAwesome icons can be selected as icons. 
-In addition to the title and text, a counter can also be added.
+This extension for [Contao CMS](https://contao.org) offers a content element with which service 
+links can be placed on your website. [FontAwesome](https://fontawesome.com/) icons can be selected in the backend. 
+In addition to the title and the text, a [counter](https://inorganik.github.io/countUp.js) can also be added to your website.
 
 ## Backend
 ![Frontend](docs/backend.png)
