@@ -1,0 +1,9 @@
+{
+  "entrypoints": {
+    "countup/countUp": {
+      "js": [
+        "/bundles/markocupicservicelink/countup/countUp.f2dd7888.js"
+      ]
+    }
+  }
+}

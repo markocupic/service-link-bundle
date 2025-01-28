@@ -1,0 +1,78 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
+{% block content %}
+    {% if hasLink %}
+        {% set link_attributes = attrs()
+            .setIfExists('href', serviceLinkHref)
+            .setIfExists('itemprop', 'url')
+            .setIfExists('title', serviceLinkTitleAttr|insert_tag|e('html_attr')) %}
+    {% endif %}
+    <div class="service-link-wrapper">
+        {# Icon #}
+        {% if hasIcon %}
+            {% block service_link_icon %}
+                {% set icon_attributes = attrs()
+                    .addClass(faIconStyle)
+                    .addClass('fa-'~faIconName)
+                    .addClass(serviceLinkIconClass)
+                    .setIfExists('data-faunicode', faIconUnicode)
+                    .setIfExists('aria-hidden', 'true') %}
+                <div class="service-link-icon">
+                    {% if hasLink %}<a{{ link_attributes }}>{% endif %}<i{{ icon_attributes }}></i>{% if hasLink %}</a>{% endif %}
+                </div>
+            {% endblock %}
+        {% endif %}
+        {# Counter #}
+        {% if serviceLinkCountUpNumberEnd %}
+            {% block service_link_count_up %}
+                {% set countup_attributes = attrs()
+                    .addClass('service-link-number')
+                    .addClass(serviceLinkUseCountUp ? 'count-up' : '')
+                    .setIfExists('data-countUpStartVal', serviceLinkCountUpNumberStart)
+                    .setIfExists('data-countUpEndVal', serviceLinkCountUpNumberEnd)
+                    .setIfExists('data-countUpDecimal', serviceLinkCountUpDecimal)
+                    .setIfExists('data-countUpDecimalPlaces', serviceLinkCountUpDecimalPlaces)
+                    .setIfExists('data-countUpPrefix', serviceLinkCountUpPrefix)
+                    .setIfExists('data-countUpSuffix', serviceLinkCountUpSuffix)
+                    .setIfExists('data-countUpDuration', serviceLinkCountUpDuration)
+                    .setIfExists('data-countUpEasing', serviceLinkCountUpEasing)
+                    .setIfExists('data-countUpGrouping', serviceLinkCountUpGrouping) %}
+                <div{{ countup_attributes }}>
+                    {{ serviceLinkUseCountUp ? serviceLinkCountUpNumberStart : serviceLinkCountUpNumberEnd }}
+                </div>
+            {% endblock %}
+        {% endif %}
+        {# service link title #}
+        {% if serviceLinkTitle %}
+            {% block service_link_title %}
+                <div class="service-link-title">
+                    {% if hasLink %}<a{{ link_attributes }}>{% endif %}{{ serviceLinkTitle }}{% if hasLink %}</a>{% endif %}
+                </div>
+            {% endblock %}
+        {% endif %}
+        {# service link text  #}
+        {% if serviceLinkText %}
+            {% block service_link_text %}
+                <div class="service-link-text">
+                    {{ serviceLinkText|insert_tag|raw }}
+                </div>
+            {% endblock %}
+        {% endif %}
+        {# Button #}
+        {% if hasButton %}
+            {% block service_link_button %}
+                <div class="service-link-button">
+                    {% if hasLink %}<a{{ link_attributes }}>{% endif %}{{ serviceLinkButtonLbl|insert_tag }}{% if hasLink %}</a>{% endif %}
+                </div>
+            {% endblock %}
+        {% endif %}
+    </div>
+    {# Script #}
+    {% if serviceLinkUseCountUp %}
+        {% block service_link_script %}
+            {% add "service-link-animated-counter" to body %}
+                <script src="{{ asset('countup/countUp.js', 'markocupic_service_link') }}"></script>
+            {% endadd %}
+        {% endblock %}
+    {% endif %}
+{% endblock %}

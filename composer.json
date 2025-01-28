@@ -3,9 +3,10 @@
     "description": "Add a service icon link as a contao content element.",
     "keywords": [
         "contao",
+        "countUp",
         "frontend",
         "service-link",
-        "Font Awesome 5"
+        "Font Awesome"
     ],
     "type": "contao-module",
     "license": "MIT",
@@ -22,8 +23,8 @@
         "source": "https://github.com/markocupic/service-link-bundle"
     },
     "require": {
-        "php": "^8.1",
-        "contao/core-bundle": "^4.13 || ^5.0",
+        "php": "^8.3",
+        "contao/core-bundle": "^5.0",
         "markocupic/fontawesome-icon-picker-bundle": "^2.0"
     },
     "require-dev": {
