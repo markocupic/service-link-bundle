@@ -12,6 +12,10 @@ Encore
         to: 'countup/[path][name].[hash:8].[ext]',
         pattern: /(countUp\.umd\.js)$/,
     })
+    .copyFiles({
+        from: './assets/style',
+        to: 'style/[path][name].[hash:8].[ext]',
+    })
 
     .disableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

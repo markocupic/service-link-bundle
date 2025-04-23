@@ -39,7 +39,7 @@ class BackendAssetsSubscriber implements EventSubscriberInterface
 
         if ($this->scopeMatcher->isBackendRequest($request)) {
             // Add backend CSS
-            $GLOBALS['TL_CSS'][] = $this->packages->getUrl('css/service_link.css', 'markocupic_service_link');
+            $GLOBALS['TL_CSS'][] = $this->packages->getUrl('style/service_link_backend.css', 'markocupic_service_link');
         }
     }
 }
