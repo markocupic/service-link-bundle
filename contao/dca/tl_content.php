@@ -22,13 +22,23 @@ $GLOBALS['TL_DCA']['tl_content']['palettes'][ServiceLinkController::TYPE] = '
 {text_legend},serviceLinkTitle,serviceLinkText;
 {link_legend},serviceLinkHref;
 {icon_legend},serviceLinkFaIcon,serviceLinkIconClass;
-{count_up_legend},serviceLinkUseCountUp,serviceLinkCountUpNumberStart,serviceLinkCountUpNumberEnd,serviceLinkCountUpPrefix,serviceLinkCountUpSuffix,serviceLinkCountUpDuration,serviceLinkCountUpDecimal,serviceLinkCountUpGrouping,serviceLinkCountUpEasing;
+{count_up_legend},serviceLinkUseCountUp;
 {button_legend},serviceLinkButtonLbl,serviceLinkButtonClass,serviceLinkTitleAttr;
 {template_legend:hide},customTpl;
 {protected_legend:hide},protected;
 {expert_legend:hide},cssID;
 {invisible_legend:hide},invisible,start,stop
 ';
+
+/**
+ * Subpalettes
+ */
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['serviceLinkUseCountUp'] = 'serviceLinkCountUpNumberStart,serviceLinkCountUpNumberEnd,serviceLinkCountUpPrefix,serviceLinkCountUpSuffix,serviceLinkCountUpDuration,serviceLinkCountUpDecimal,serviceLinkCountUpGrouping,serviceLinkCountUpEasing';
+
+/**
+ * Selectors
+ */
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'serviceLinkUseCountUp';
 
 /*
  * Add fields to tl_content
@@ -103,6 +113,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['serviceLinkUseCountUp'] = [
     'exclude'   => true,
     'filter'    => true,
     'inputType' => 'checkbox',
+    'eval'      => ['submitOnChange' => true, 'tl_class' => 'm12 clr'],
     'sql'       => ['type' => 'boolean', 'default' => true],
 ];
 

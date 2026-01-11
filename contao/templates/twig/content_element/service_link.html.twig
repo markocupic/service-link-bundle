@@ -14,6 +14,7 @@
                 {% set icon_attributes = attrs()
                     .addClass(faIconStyle)
                     .addClass('fa-'~faIconName)
+                    .addClass(faIconStyle)
                     .addClass(serviceLinkIconClass)
                     .setIfExists('data-faunicode', faIconUnicode)
                     .setIfExists('aria-hidden', 'true') %}
@@ -23,11 +24,11 @@
             {% endblock %}
         {% endif %}
         {# Counter #}
-        {% if serviceLinkCountUpNumberEnd %}
+        {% if serviceLinkUseCountUp %}
             {% block service_link_count_up %}
                 {% set countup_attributes = attrs()
                     .addClass('service-link-number')
-                    .addClass(serviceLinkUseCountUp ? 'count-up' : '')
+                    .addClass('count-up')
                     .setIfExists('data-countUpStartVal', serviceLinkCountUpNumberStart)
                     .setIfExists('data-countUpEndVal', serviceLinkCountUpNumberEnd)
                     .setIfExists('data-countUpDecimal', serviceLinkCountUpDecimal)

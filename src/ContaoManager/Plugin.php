@@ -23,9 +23,6 @@ use Markocupic\ServiceLinkBundle\MarkocupicServiceLinkBundle;
 
 class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getBundles(ParserInterface $parser): array
     {
         return [

@@ -84,7 +84,7 @@ class UpdateContentElement extends AbstractMigration
             ],
             [
                 Types::STRING,
-            ]
+            ],
         );
 
         return false !== $result;
@@ -115,20 +115,17 @@ class UpdateContentElement extends AbstractMigration
         $arrHeadline = $stringUtil->deserialize($contentElement['headline'], true);
         $headline = !empty($arrHeadline['value']) ? $arrHeadline['value'] : '';
 
-        $set = array_merge(
-            $contentElement,
-            [
-                'type' => 'service_link',
-                'headline' => '',
-                'serviceLinkTitle' => $headline,
-                'serviceLinkHref' => $contentElement['buttonJumpTo'],
-                'serviceLinkButtonLbl' => $contentElement['buttonText'],
-                'serviceLinkIconClass' => $contentElement['iconClass'],
-                'serviceLinkTitleAttr' => $contentElement['buttonJumpToLinkText'],
-                'serviceLinkFaIcon' => $contentElement['faIcon'],
-                'serviceLinkButtonClass' => $contentElement['buttonClass'],
-            ],
-        );
+        $set = array_merge($contentElement, [
+            'type' => 'service_link',
+            'headline' => '',
+            'serviceLinkTitle' => $headline,
+            'serviceLinkHref' => $contentElement['buttonJumpTo'],
+            'serviceLinkButtonLbl' => $contentElement['buttonText'],
+            'serviceLinkIconClass' => $contentElement['iconClass'],
+            'serviceLinkTitleAttr' => $contentElement['buttonJumpToLinkText'],
+            'serviceLinkFaIcon' => $contentElement['faIcon'],
+            'serviceLinkButtonClass' => $contentElement['buttonClass'],
+        ]);
 
         $this->connection->update(
             'tl_content',

@@ -31,6 +31,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ServiceLinkController extends AbstractContentElementController
 {
     public const string TYPE = 'service_link';
+
     public const string DECIMAL_SEPARATOR = '.';
 
     private Adapter $stringUtilAdapter;
@@ -38,7 +39,6 @@ class ServiceLinkController extends AbstractContentElementController
     public function __construct(
         private readonly ContaoFramework $framework,
         private readonly InsertTagParser $insertTagParser,
-        private readonly array $fontawesomeStyles,
     ) {
         $this->stringUtilAdapter = $this->framework->getAdapter(StringUtil::class);
     }
@@ -46,11 +46,13 @@ class ServiceLinkController extends AbstractContentElementController
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         $arrFa = $this->stringUtilAdapter->deserialize($model->serviceLinkFaIcon, true);
+
+        dump($arrFa, true);
         $template->set('id', $model->id);
         $template->set('hasIcon', !empty($arrFa[0]));
         $template->set('faIconName', $arrFa[0] ?? '');
         $template->set('faIconPrefix', $arrFa[1] ?? '');
-        $template->set('faIconStyle', $arrFa[1] ?? null ? $this->fontawesomeStyles[$arrFa[1]] ?? '' : '');
+        $template->set('faIconStyle', $arrFa[1] ?? '');
         $template->set('faIconUnicode', $arrFa[2] ?? '');
         $template->set('serviceLinkIconClass', $model->serviceLinkIconClass);
         $template->set('serviceLinkTitle', $this->insertTagParser->replaceInline($model->serviceLinkTitle));

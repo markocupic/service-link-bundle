@@ -24,7 +24,7 @@ $GLOBALS['TL_LANG']['tl_content']['count_up_legend'] = 'Counter settings';
 /*
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_content']['serviceLinkFaIcon'] = ['Icon Picker (FontAwesome v'.Config::FONTAWESOME_VERSION.')', 'Select an icon from the Font Awesome 5 library.'];
+$GLOBALS['TL_LANG']['tl_content']['serviceLinkFaIcon'] = ['Icon Picker (FontAwesome v'.Config::getVersion().')', 'Select an icon from the Font Awesome 7 library.'];
 $GLOBALS['TL_LANG']['tl_content']['serviceLinkIconClass'] = ['Additional CSS class for the icon', 'E.g.: fa-4x'];
 $GLOBALS['TL_LANG']['tl_content']['serviceLinkButtonClass'] = ['Button CSS classes', 'E.g. Bootstrap classes: btn btn-primary'];
 $GLOBALS['TL_LANG']['tl_content']['serviceLinkButtonLbl'] = ['Button label', 'Add the button label'];
