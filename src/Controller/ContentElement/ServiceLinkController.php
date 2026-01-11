@@ -47,7 +47,6 @@ class ServiceLinkController extends AbstractContentElementController
     {
         $arrFa = $this->stringUtilAdapter->deserialize($model->serviceLinkFaIcon, true);
 
-        dump($arrFa, true);
         $template->set('id', $model->id);
         $template->set('hasIcon', !empty($arrFa[0]));
         $template->set('faIconName', $arrFa[0] ?? '');
