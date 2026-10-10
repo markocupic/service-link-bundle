@@ -5,7 +5,7 @@
         {% set link_attributes = attrs()
             .setIfExists('href', serviceLinkHref)
             .setIfExists('itemprop', 'url')
-            .setIfExists('title', serviceLinkTitleAttr|insert_tag|e('html_attr')) %}
+            .setIfExists('title', serviceLinkTitleAttr) %}
     {% endif %}
     <div class="service-link-wrapper">
         {# Icon #}
@@ -14,7 +14,6 @@
                 {% set icon_attributes = attrs()
                     .addClass(faIconStyle)
                     .addClass('fa-'~faIconName)
-                    .addClass(faIconStyle)
                     .addClass(serviceLinkIconClass)
                     .setIfExists('data-faunicode', faIconUnicode)
                     .setIfExists('aria-hidden', 'true') %}
@@ -55,7 +54,7 @@
         {% if serviceLinkText %}
             {% block service_link_text %}
                 <div class="service-link-text">
-                    {{ serviceLinkText|insert_tag|raw }}
+                    {{ serviceLinkText|raw }}
                 </div>
             {% endblock %}
         {% endif %}
@@ -63,7 +62,7 @@
         {% if hasButton %}
             {% block service_link_button %}
                 <div class="service-link-button">
-                    {% if hasLink %}<a{{ link_attributes }}>{% endif %}{{ serviceLinkButtonLbl|insert_tag }}{% if hasLink %}</a>{% endif %}
+                    {% if hasLink %}<a{{ link_attributes }}>{% endif %}{{ serviceLinkButtonLbl }}{% if hasLink %}</a>{% endif %}
                 </div>
             {% endblock %}
         {% endif %}

@@ -45,7 +45,7 @@ class ServiceLinkController extends AbstractContentElementController
 
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
-        $arrFa = $this->stringUtilAdapter->deserialize($model->serviceLinkFaIcon, true);
+        $arrFa = $this->stringUtilAdapter->deserialize((string) $model->serviceLinkFaIcon, true);
 
         $template->set('id', $model->id);
         $template->set('hasIcon', !empty($arrFa[0]));
@@ -54,22 +54,22 @@ class ServiceLinkController extends AbstractContentElementController
         $template->set('faIconStyle', $arrFa[1] ?? '');
         $template->set('faIconUnicode', $arrFa[2] ?? '');
         $template->set('serviceLinkIconClass', $model->serviceLinkIconClass);
-        $template->set('serviceLinkTitle', $this->insertTagParser->replaceInline($model->serviceLinkTitle));
+        $template->set('serviceLinkTitle', $this->insertTagParser->replaceInline((string) $model->serviceLinkTitle));
         $template->set('serviceLinkText', $this->insertTagParser->replaceInline((string) $model->serviceLinkText));
         $template->set('hasLink', !empty($model->serviceLinkHref));
-        $template->set('serviceLinkHref', $this->insertTagParser->replaceInline($model->serviceLinkHref));
+        $template->set('serviceLinkHref', $this->insertTagParser->replaceInline((string) $model->serviceLinkHref));
         $template->set('hasButton', !empty($model->serviceLinkButtonLbl));
-        $template->set('serviceLinkButtonLbl', $this->insertTagParser->replaceInline($model->serviceLinkButtonLbl));
-        $template->set('serviceLinkTitleAttr', $this->insertTagParser->replaceInline($model->serviceLinkTitleAttr));
+        $template->set('serviceLinkButtonLbl', $this->insertTagParser->replaceInline((string) $model->serviceLinkButtonLbl));
+        $template->set('serviceLinkTitleAttr', $this->insertTagParser->replaceInline((string) $model->serviceLinkTitleAttr));
         $template->set('serviceLinkUseCountUp', (bool) $model->serviceLinkUseCountUp);
-        $template->set('serviceLinkCountUpDuration', ceil(((int) $model->serviceLinkCountUpDuration ?? 3000) / 1000));
+        $template->set('serviceLinkCountUpDuration', ceil(((int) $model->serviceLinkCountUpDuration ?: 3000) / 1000));
         $template->set('serviceLinkCountUpGrouping', $model->serviceLinkCountUpGrouping ? 'true' : 'false');
         $template->set('serviceLinkCountUpEasing', $model->serviceLinkCountUpEasing ? 'true' : 'false');
-        $template->set('serviceLinkCountUpPrefix', $this->insertTagParser->replaceInline($model->serviceLinkCountUpPrefix));
-        $template->set('serviceLinkCountUpSuffix', $this->insertTagParser->replaceInline($model->serviceLinkCountUpSuffix));
-        $template->set('serviceLinkCountUpDecimal', (string) $model->serviceLinkCountUpDecimal ?? '.');
-        $numberStart = $this->checkNumber($model->serviceLinkCountUpNumberStart);
-        $numberEnd = $this->checkNumber($model->serviceLinkCountUpNumberEnd);
+        $template->set('serviceLinkCountUpPrefix', $this->insertTagParser->replaceInline((string) $model->serviceLinkCountUpPrefix));
+        $template->set('serviceLinkCountUpSuffix', $this->insertTagParser->replaceInline((string) $model->serviceLinkCountUpSuffix));
+        $template->set('serviceLinkCountUpDecimal', (string) $model->serviceLinkCountUpDecimal ?: '.');
+        $numberStart = $this->checkNumber((string) $model->serviceLinkCountUpNumberStart);
+        $numberEnd = $this->checkNumber((string) $model->serviceLinkCountUpNumberEnd);
         $template->set('serviceLinkCountUpNumberStart', $numberStart);
         $template->set('serviceLinkCountUpNumberEnd', $numberEnd);
         $template->set('serviceLinkCountUpDecimalPlaces', max($this->getDecimalPlaces($numberStart), $this->getDecimalPlaces($numberEnd)));

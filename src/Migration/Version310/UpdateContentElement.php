@@ -24,9 +24,8 @@ use Doctrine\DBAL\Connection;
  */
 class UpdateContentElement extends AbstractMigration
 {
-    public function __construct(
-        private readonly Connection $connection,
-    ) {
+    public function __construct(private readonly Connection $connection)
+    {
     }
 
     public function shouldRun(): bool
